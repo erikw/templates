@@ -1,0 +1,73 @@
+.TH UNTEX 1 "Version 1.2 1994 April 6" \" -*- nroff -*-
+.UC 4
+.SH NAME
+untex \- strip LaTeX comands from input
+.SH SYNOPSIS
+.B untex
+[
+.B options
+] 
+[
+.I "files ..."
+]
+.SH DESCRIPTION
+.I Untex
+removes some LaTeX commands from the files listed in the arguments (or standard
+input) and prints the output to standard output.
+.SH OPTIONS
+.TP
+.B \-
+read from standard input.
+.TP
+.BI \-o
+remove options to LaTeX commands, i. e. everything in brackets []
+behind a command.
+.TP
+.BI \-i
+process "\\include{file}" and "\\input{file}" and "\\input file" commands. 
+.TP
+.B \-m
+(try to) remove all math code.
+.TP
+.B \-u
+replace all
+\\"a
+(etc.) with ibm (CP850) characters.
+.TP
+.B \-uiso
+replace all \\"a (etc.) with ISO characters.
+.TP
+.B \-uascii
+replace all \\"a (etc.) with ascii characters.
+.TP
+.B \-g
+replace all "a (etc., from german.sty) with ibm (CP850) characters.
+.TP
+.B \-giso
+replace all "a (etc., from german.sty) with ISO characters.
+.TP
+.B \-gascii
+replace all "a (etc., from german.sty) with ascii characters.
+.TP
+.B \-e
+remove environment names.
+.TP
+.B \-a
+remove arguments of commands (not recommended).
+.TP
+.B \-g implies \-u, \-a implies \-o.
+
+.SH "SEE ALSO"
+latex, tex, detex
+.PP
+.SH BUGS
+The \-g and \-u options only work for german accented characters. Not
+fixed due to lack of time, any help is appreciated. The \\includeonly
+command is ignored.
+.PP
+.SH AUTHORS
+Untex was written by Michael Staats
+(michael@hal6000.thp.Uni-Duisburg.DE). The \-gascii and \-uascii
+options were added by Denis Endisch (denis@smoky.ikf.physik.uni-frankfurt.de).
+Thanks to Subhasish Mazumdar (mazumdar@ringer.cs.utsa.edu) for some
+hints for improvements and bug reports.

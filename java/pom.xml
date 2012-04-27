@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/maven-v4_0_0.xsd">
+	<!-- Maven 2.x POM model. -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Project identifiers. -->
+	<groupId>se.lth.student</groupId>
+	<artifactId>WashingMachine</artifactId>
+	<version>0.0.1</version>
+
+	<!-- More project data. -->
+	<packaging>jar</packaging>
+	<url>http://users.student.lth.se/dt09ew6/</url>
+	<description>Laboratory session #2 in EDA040 2011</description>
+
+	<!-- How to build. -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assemble/full.xml</descriptor>
+					</descriptors>
+					<archive>
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>se.lth.cs.realtime</groupId>
+			<artifactId>realtime</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,67 @@
+\documentclass[10pt,journal,compsoc,final,twoside,twocolumn,a4paper]{IEEEtran}
+\usepackage{lipsum}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+%\usepackage[swedish]{babel}
+\usepackage{ifpdf}
+\ifpdf
+	\usepackage{thumbpdf}
+	\usepackage[pdftex,bookmarks=true,pdftitle={TITLE},pdfauthor={Erik Westrup, ...}]{hyperref}
+\else
+	\usepackage{url}
+\fi
+
+\begin{document}
+\title{TITLE}
+
+% \author{Erik~Westrup~<ada09ewe@student.lu.se> \\
+%         Author~2~<ada09@student.lu.se>}
+\author{
+\begin{math}
+\left. \begin{array}{ll} 
+	\mathrm{Erik~Westrup,} & \mathrm{~ada09ewe} \\
+	\mathrm{Author~2,} & \mathrm{~ada09}
+\end{array} \right\}\mathrm{@student.lu.se}
+\end{math}
+}
+
+\markboth{TITLE}
+{SUBTITLE}
+
+\IEEEcompsoctitleabstractindextext{%
+\begin{abstract}
+	abstract text\ldots 
+\end{abstract}}
+\maketitle
+\IEEEdisplaynotcompsoctitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+\IEEEPARstart{B}{ig} intro
+
+
+\hfill The authors
+
+\hfill \today
+
+
+\section{MAIN CONTENT}
+\lipsum[1-2]
+
+\subsection{SUBSECTION}
+\lipsum[1]
+
+\section{Summary}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\newpage
+\section*{Appendix}
+\appendices
+\section{Credibility of the references}
+
+\emph{\cite{dummy+ref}} .... jfjkdfjkdsfj
+
+\end{document}

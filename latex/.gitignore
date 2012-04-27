@@ -1,0 +1,11 @@
+#report.pdf
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.out
+*.ps
+*.tpt
+*.toc
+q.log
