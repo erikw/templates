@@ -9,3 +9,4 @@
 *.tpt
 *.toc
 q.log
+bin/untex/untex
