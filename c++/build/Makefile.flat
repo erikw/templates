@@ -37,7 +37,7 @@ else
 endif
 
 # Enable instrumented compilation.
-ifeq ($(COVERAGE), true) 
+ifeq ($(COVERAGE), true)
 	CXXFLAGS += --coverage
 	LDFLAGS  += --coverage
 endif
@@ -108,7 +108,7 @@ doc :
 	$(CXX) -MM $(CXXFLAGS) $< > $@.$$$$; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
-include $(DFILES)
+-include $(DFILES) /dev/null
 
 # Linking of $(PROGS)
 prog0: prog0.o lib0.o

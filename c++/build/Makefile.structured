@@ -31,13 +31,13 @@ CXXFLAGS	+= $(ERRFLAGS) $(shell find $(SRCDIR) -type d -exec echo -I\{\} \;)
 # Enable debug options.
 ifeq ($(DEBUG), true)
 		CXXFLAGS += $(DEBUGOPT) -O0
-		LDFLAGS  += $(DEBUGOPT) 
+		LDFLAGS  += $(DEBUGOPT)
 else
 		CXXFLAGS += -O$(OPTLVL)
 endif
 
 # Enable instrumented compilation.
-ifeq ($(COVERAGE), true) 
+ifeq ($(COVERAGE), true)
 	CXXFLAGS += --coverage
 	LDFLAGS  += --coverage
 endif
@@ -105,7 +105,7 @@ doc :
 	#doxygen ../src
 
 #symlink: $(PROGS)
-	#ln -s pak1/main_prog . 
+	#ln -s pak1/main_prog .
 
 # Generate Makefiles describing "name.cc"s dependencies.
 # The double escaped `echo` is needed because the normal .o : .c implicit rule will not be invoked when target is not in the same directory as prerequisite.
@@ -116,7 +116,7 @@ doc :
 	sed 's,\(.*\)\.o[ :]*,$(shell echo $< | sed -e "s/\.\.\/src\/\(.*\)\/[-_[:alnum:]]*\.cc/\1/g")\/\1.o $@ : ,g' < $@.$$$$ > $@; \
 	echo -e "\t\$$(CXX) \$$(CXXFLAGS) -c -o \$$(patsubst %.d,%.o,\$$@) \$$<" >> $@; \
 	rm -f $@.$$$$
-include $(DFILES)
+-include $(DFILES) /dev/null
 
 # Linking of $(PROGS)
 pack0/prog0: pack0/prog0.o pack1/libbib.o
