@@ -1,3 +1,5 @@
+# Makefile for C++ projects. The output all resides in one directory which could cause name collisions. This just serves as a simpler alternative to the superior but heavily hacked structures Makefile.
+
 ### Macros ###
 NAME		= project0
 SRCDIR		= ../src

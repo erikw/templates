@@ -1,3 +1,5 @@
+# Makefile for C++ projects. The output will have the same directory structure as the source.
+
 ### Macros ###
 NAME		= project0
 SRCDIR		= ../src

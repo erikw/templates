@@ -1,4 +1,4 @@
-# Makefile by Erik Westrup for the program $(MAIN).
+# Makefile for C projects.
 
 # Not file targets.
 .PHONY: clean help list tar tar-src
