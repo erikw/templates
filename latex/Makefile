@@ -1,4 +1,4 @@
-# Generate all outputs for the project.
+# Compile a LaTeX file to different output formats.
 NAME=paper
 
 .PHONY: all clean help wc
