@@ -84,7 +84,7 @@
 			<classpath refid="externalLibs" />
 
 			<batchtest>
-				<fileset dir="${path.destination}/" includes="${path.test}/**/**Test**.class" />
+				<fileset dir="${path.destination}/" includes="${path.test}/**/**Test**.class" excludes="**/*$*.class" />
 			</batchtest>
 		</junit>
 	</target>
