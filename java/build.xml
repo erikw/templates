@@ -83,6 +83,8 @@
 			<formatter type="plain" usefile="no" />
 			<classpath refid="classpath.tests" />
 			<classpath refid="externalLibs" />
+			<!-- Enalbe Java assertons. Can by enabled on commandline with $(java [-ea|-enableassertions]).  -->
+			<assertions><enable/></assertions>
 
 			<batchtest>
 				<fileset dir="${path.destination}/" includes="${path.test}/**/**Test**.class" excludes="**/*$*.class" />
