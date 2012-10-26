@@ -1,4 +1,6 @@
-#report.pdf
+#paper.pdf
+*.pdf
+*.swp
 *.aux
 *.bbl
 *.blg
