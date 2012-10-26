@@ -1,17 +1,18 @@
 # Compile a LaTeX file to different output formats.
+# TODO rewrite to a real Makefile.
 NAME=paper
 
-.PHONY: all clean help wc
+.PHONY: all clean compile help wc
 
 # target: all - Default target. Cleans and compiles.
-all : compile
+all: compile
 
 # target: help - Display all targets.
-help :
+help:
 	egrep "#\starget:" [Mm]akefile  | cut -d " " -f3-
 
 # target: clean - Deletes all generated files.
-clean :
+clean:
 	$(RM) $(NAME).aux
 	$(RM) $(NAME).bbl
 	$(RM) $(NAME).blg
@@ -25,7 +26,7 @@ clean :
 	$(RM) q.log
 
 # target: compile - Compiles and renders documents.
-compile :
+compile:
 	latex		$(NAME).tex	# Make aux that bibtex need.
 	bibtex		$(NAME).aux	# Go through all references.
 	latex		$(NAME).tex	# Make dvi.
@@ -38,9 +39,9 @@ compile :
 	pdflatex	$(NAME).tex	# Incorporate the thumbnails.
 
 # target: wc - Count real words in the tex file.
-wc :
+wc:
 	bin/texcount	$(NAME).tex
 
 # target: cc - Count real characters in the tex file.
-cc :
+cc:
 	bin/untex/untex	$(NAME).tex | wc -c
