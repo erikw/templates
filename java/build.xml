@@ -113,6 +113,9 @@
 
 	</target>
 
+	<target name="cc" depends="clean,compile" description="Shorthand for clean and compile.">
+	</target>
+
 	<target name="svnrev" description="Write svn info to file.">
 		<exec executable="svn" output="${project.svnver}">
 			<arg value="info" />
