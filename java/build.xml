@@ -12,6 +12,7 @@
 	<property name="path.source" value="src" />
 	<property name="path.destination" value="bin" />
 	<property name="path.library" value="lib" />
+	<property name="path.extlibrary" value="/usr/share/java/">
 	<property name="path.documentation" value="doc" />
 	<property name="path.release" value="release" />
 	<property name="path.test" value="test" />
@@ -19,11 +20,15 @@
 
 
 	<!-- Library versions in use. Please update path externalLibs if you add/remove from here.-->
-	<property name="junit" value="junit-4.xyz.jar" />
+	<!--<property name="junit" value="junit-4.xyz.jar" />-->
+	<property name="junit" value="junit.jar" />
 
 	<!-- *** Paths *** -->
 	<path id="externalLibs">
-		<fileset dir="${path.library}">
+		<!--<fileset dir="${path.library}">-->
+			<!--<include name="${junit}" />-->
+		<!--</fileset>-->
+		<fileset dir="${path.extlibrary}">
 			<include name="${junit}" />
 		</fileset>
 	</path>
