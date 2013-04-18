@@ -91,7 +91,7 @@
 	</target>
 
 	<target name="test" depends="compile" description="Run JUnit tests and stop build if one fails.">
-		<junit printsummary="true" fork="yes" haltonfailure="true">
+		<junit printsummary="on" fork="yes" haltonfailure="true">
 			<formatter type="plain" usefile="no" />
 			<classpath refid="classpath.tests" />
 			<classpath refid="externalLibs" />
