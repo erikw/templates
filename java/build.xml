@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="PROJNAME" basedir="." default="compile">
+<project name="PROJNAME" basedir="." default="build">
 	<description>
 		Build script for the NAME project by team X.
 	</description>
@@ -41,7 +41,7 @@
 	<!-- *** Targets *** -->
 	<!-- Here all targets exists. -->
 
-	<target name="compile" depends="tags" description="Compile the sources to the destination.">
+	<target name="build" depends="tags" description="Compile the sources to the destination.">
 		<mkdir dir="bin" />
 		<javac destdir="${path.destination}" includeantruntime="false" debug="true" debuglevel="lines,vars,source">
 			<src path="${path.source}" />
@@ -64,7 +64,7 @@
 		<echo message="File: ${jarName}" />
 	</target>
 
-	<target name="distribute" depends="compile,svnrev,doc" description="Make a releaseable JAR.">
+	<target name="distribute" depends="build,svnrev,doc" description="Make a releaseable JAR.">
 
 		<property prefix="svn" file="svn.properties" />
 		<property name="jarName" value="${path.release}/${project.name}-${svn.Revision}.jar" />
@@ -90,7 +90,7 @@
 		<delete file="${project.svnver}" />
 	</target>
 
-	<target name="test" depends="compile" description="Run JUnit tests and stop build if one fails.">
+	<target name="test" depends="build" description="Run JUnit tests and stop build if one fails.">
 		<junit printsummary="on" fork="yes" haltonfailure="true">
 			<formatter type="plain" usefile="no" />
 			<classpath refid="classpath.tests" />
@@ -118,7 +118,7 @@
 
 	</target>
 
-	<target name="cc" depends="clean,compile" description="Shorthand for clean and compile.">
+	<target name="cc" depends="clean,buld" description="Shorthand for clean and compile.">
 	</target>
 
 	<target name="svnrev" description="Write svn info to file.">
