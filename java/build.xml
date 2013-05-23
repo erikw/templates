@@ -118,7 +118,7 @@
 
 	</target>
 
-	<target name="cc" depends="clean,buld" description="Shorthand for clean and compile.">
+	<target name="cc" depends="clean,build" description="Shorthand for clean and compile.">
 	</target>
 
 	<target name="svnrev" description="Write svn info to file.">
