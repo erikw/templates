@@ -16,7 +16,7 @@ TESTDIR		= testfiles
 TESTOUTS	= $(wildcard $(TESTDIR)/*.out)
 THISDIR		= $(shell basename `pwd`)
 
-CC		= gcc
+CC		=  $(shell hash clang 2>/dev/null && echo clang || echo gcc)
 #DEBUG		= -g
 STD		= c99
 OPTLVL		= 3
@@ -25,7 +25,11 @@ ERRFLAGS	= -Wall -Wextra -Werror
 INCLUDES	= -I$(HDR)
 #LFLAGS		= -L$(LIB)
 #LIBS		= -lm -lpcre
-CFLAGS		= $(ERRFLAGS) -O$(OPTLVL) $(DEBUG) -std=$(STD) -fstack-protector-all -z noexecstack $(INCLUDES) $(LFLAGS) $(LIBS)
+CFLAGS		= $(ERRFLAGS) -O$(OPTLVL) $(DEBUG) -std=$(STD) -fstack-protector-all
+ifeq ($(CXX), gcc)
+	CFLAGS +=  -z noexecstack
+endif
+CFLAGS 		+= $(INCLUDES) $(LFLAGS) $(LIBS)
 DFLAGS		= -q
 #DFLAGS		= -y
 
