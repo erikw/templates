@@ -1,0 +1,90 @@
+\documentclass[aspectratio=169, 10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+%% Beamer settings
+% Built-ins
+% http://deic.uab.es/~iblanes/beamer_gallery/
+\usetheme{Dresden}
+%\usecolortheme{dove}
+%\setbeamertemplate{navigation symbols}{} % Disable navigation bar symbols.
+
+% DIY
+%\useoutertheme{infolines}
+%\definecolor{axisyellow}{HTML}{FFCC33}
+\useinnertheme{circles}
+%\setbeamercolor{title}{fg=black}
+%\setbeamercolor{titlelike}{fg=black}
+%\setbeamercolor{item projected}{bg=axisyellow}
+%\setbeamertemplate{itemize item}{\color{axisyellow}$\bullet$}
+%\setbeamertemplate{itemize subitem}{\color{axisyellow}$\bullet$}
+%\setbeamertemplate{footline}{}
+
+%\usebackgroundtemplate%
+%{%
+    %\includegraphics[width=\paperwidth,height=\paperheight]{../img/content_169.png}%
+%}
+
+\setcounter{tocdepth}{0}
+
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currSectionName}{\@currentlabelname}
+\makeatother
+
+\title{Presentation title}
+\author{Erik Westrup}
+\institute[]
+{%
+	Lund University, Sweden
+}
+
+\begin{document}
+{%
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{../img/heading_169.png}}
+\begin{frame}[plain]
+	\titlepage%
+\end{frame}
+}
+\section[]{TOC}
+\begin{frame}
+	\frametitle{Table of Contents}
+	\tableofcontents[currentsection]
+\end{frame}
+\section{Introduction}
+\subsection{Authors}
+\begin{frame}
+	\frametitle{Contributors}
+	\begin{columns}[c]
+	\begin{column}{7cm}
+		{\bfseries Erik Westrup} \\
+		{\normalsize
+		<erik.westrup@gmail.com> \\
+		Studying M.Sc.\@ in Computer Science \& Engineering,
+		Lund University 2009-- \\
+		From: Ljunghusen, Sweden \\
+		\$EDITOR=vim \\
+		\$BROWSER=firefox+pentadactyl \\
+		colorscheme=solarized \\
+		}
+	\end{column}
+	\begin{column}[c]{7cm}
+	\end{column}
+	\end{columns}
+\end{frame}
+\section{Subject 1}
+\begin{frame}
+	\begin{center}
+		\huge{\currSectionName}
+	\end{center}
+\end{frame}
+\subsection{Subsec 1}
+\begin{frame}
+	\begin{itemize}
+		\item bullet 1
+		\item bullet 2
+	\end{itemize}
+\end{frame}
+\end{document}

@@ -10,5 +10,7 @@
 *.ps
 *.tpt
 *.toc
+*.nav
+*.snm
 q.log
 bin/untex/untex
