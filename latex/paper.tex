@@ -3,10 +3,11 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8x]{inputenc}
 %\usepackage[swedish]{babel}
+\newcommand{\papertitle}{Using the Go Programming Language in Practice}
 \usepackage{ifpdf}
 \ifpdf
 	\usepackage{thumbpdf}
-	\usepackage[pdftex,bookmarks=true,pdftitle={TITLE},pdfauthor={Erik Westrup, ...}]{hyperref}
+	\usepackage[pdftex,bookmarks=true,pdftitle={\papertitle},pdfauthor={Erik Westrup, ...}]{hyperref}
 \else
 	\usepackage{url}
 \fi
@@ -54,7 +55,7 @@
 %\newcommand{\matlab}{\small{\emph{MATLAB\textsuperscript{\textregistered}}}}
 
 
-\title{TITLE}
+\title{\papertitle}
 %\date{}		% Disable date on title page.
 \author{
 		\begin{tabular}{l l}
