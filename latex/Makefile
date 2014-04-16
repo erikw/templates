@@ -45,3 +45,7 @@ wc:
 # target: cc - Count real characters in the tex file.
 cc:
 	bin/untex/untex	$(NAME).tex | wc -c
+
+# target: checkrefs - Find unused bibtex items.
+checkrefs: $(NAME).aux
+	texlua ${HOME}/src/checkcites/checkcites.lua --all $(NAME).aux
