@@ -1,11 +1,10 @@
 # Compile a LaTeX file to different output formats.
-# TODO rewrite to a real Makefile.
 NAME=paper
 
-.PHONY: all clean compile help wc
+.PHONY: all clean help wc
 
 # target: all - Default target. Cleans and compiles.
-all: compile
+all: $(NAME).pdf $(NAME).dvi
 
 # target: help - Display all targets.
 help:
@@ -25,8 +24,8 @@ clean:
 	$(RM) $(NAME).toc
 	$(RM) q.log
 
-# target: compile - Compiles and renders documents.
-compile:
+# target: $NAME.{pdf,dvi} - Compiles and renders documents.
+$(NAME).pdf $(NAME).dvi: $(NAME).tex references.bib
 	latex		$(NAME).tex	# Make aux that bibtex need.
 	bibtex		$(NAME).aux	# Go through all references.
 	latex		$(NAME).tex	# Make dvi.
