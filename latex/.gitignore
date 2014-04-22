@@ -1,16 +1,19 @@
 #paper.pdf
-*.pdf
-*.swp
 *.aux
 *.bbl
 *.blg
 *.dvi
+*.fls
 *.log
-*.out
-*.ps
-*.tpt
-*.toc
 *.nav
+*.out
+*.pdf
+*.ps
 *.snm
+*.swp
+*.toc
+*.tpt
 q.log
 bin/untex/untex
+# latexmk cache
+*.fdb_latexmk

@@ -1,10 +1,13 @@
 # Compile a LaTeX file to different output formats.
+# Inspired latexmk(1) usage from: http://tex.stackexchange.com/questions/40738/how-to-properly-make-a-latex-project
 NAME=paper
 
-.PHONY: all clean help wc
+# Force latexmk to always run by making $(NAME).pdf a phony target.
+.PHONY: all clean help open wc $(NAME).dvi $(NAME).ps $(NAME).pdf
 
 # target: all - Default target. Cleans and compiles.
-all: $(NAME).pdf $(NAME).dvi
+#all: $(NAME).pdf  $(NAME).dvi $(NAME).ps # latexmk generates new .dvi even though input files have not changed.
+all: $(NAME).pdf
 
 # target: help - Display all targets.
 help:
@@ -12,30 +15,9 @@ help:
 
 # target: clean - Deletes all generated files.
 clean:
-	$(RM) $(NAME).aux
-	$(RM) $(NAME).bbl
-	$(RM) $(NAME).blg
-	$(RM) $(NAME).dvi
-	$(RM) $(NAME).log
-	$(RM) $(NAME).out
-	$(RM) $(NAME).pdf
-	$(RM) $(NAME).ps
-	$(RM) $(NAME).tpt
-	$(RM) $(NAME).toc
-	$(RM) q.log
-
-# target: $NAME.{pdf,dvi} - Compiles and renders documents.
-$(NAME).pdf $(NAME).dvi: $(NAME).tex references.bib
-	latex		$(NAME).tex	# Make aux that bibtex need.
-	bibtex		$(NAME).aux	# Go through all references.
-	latex		$(NAME).tex	# Make dvi.
-	latex		$(NAME).tex	# Complete references.
-	dvips		$(NAME).dvi	# Generate postscript.
-	$(RM)		$(NAME).aux	# Delete because the current aux was not generate with hyperref and pdflatex will complain.
-	pdflatex 	$(NAME).tex	# Generate PDF.
-	pdflatex 	$(NAME).tex	# Complete references.
-	thumbpdf 	$(NAME).pdf	# Make thumbnails for the PDF.
-	pdflatex	$(NAME).tex	# Incorporate the thumbnails.
+	latexmk -C
+	$(RM) $(NAME).bbl # Remove Bibtex file.
+	$(RM) $(NAME).tpt # Remove PDF thumbnails.
 
 # target: wc - Count real words in the tex file.
 wc:
@@ -45,6 +27,22 @@ wc:
 cc:
 	bin/untex/untex	$(NAME).tex | wc -c
 
-# target: checkrefs - Find unused bibtex items.
+# target open - open the produced PDF file.
+open: $(NAME).pdf
+	gnome-open $<
+
+# target checkrefs - Check for unused references with https://github.com/cereda/checkcites
 checkrefs: $(NAME).aux
 	texlua ${HOME}/src/checkcites/checkcites.lua --all $(NAME).aux
+
+
+$(NAME).dvi $(NAME).ps: $(NAME).tex
+	latexmk -silent -use-make -dvi -ps $<
+
+$(NAME).pdf: $(NAME).tex
+	latexmk -silent -use-make -pdf -pdflatex="pdflatex -interaction nonstopmode -file-line-error" $<
+
+# Called by latexmk. Adding a $(NAME).pdf dependency would cause infinite recursion by latexmk.
+$(NAME).tpt:
+	thumbpdf $(NAME).pdf
+
