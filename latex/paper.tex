@@ -7,7 +7,7 @@
 \usepackage{ifpdf}
 \ifpdf
 	\usepackage{thumbpdf}
-	\usepackage[pdftex,bookmarks=true,pdftitle={\papertitle},pdfauthor={Erik Westrup, ...}]{hyperref}
+	\usepackage[pdftex,bookmarks=true,pdftitle={\papertitle},pdfauthor={Erik Westrup}]{hyperref}
 \else
 	\usepackage{url}
 \fi
@@ -15,6 +15,8 @@
 \usepackage{graphicx}
 \usepackage{enumerate}
 
+\vbadness=10000 % Suppress "underfull \vbox badness"
+\hbadness=10000 % Suppress "underfull \hbox badness"
 
 % Old style of program listings.
 %\usepackage{fancyvrb}	% For source code listing.
@@ -23,7 +25,7 @@
 
 % Program listings.
 %\usepackage{listings}
-%\usepackage{color}
+%\usepackage{xcolor}
 %\definecolor{dkgreen}{rgb}{0,0.6,0}
 %\definecolor{gray}{rgb}{0.5,0.5,0.5}
 %\definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -51,13 +53,14 @@
 				%escapeinside={\%}{)}					% If you want to add a comment within your code.
 				%morekeywords={*,...}					% If you want to add more keywords to the set.
 %}
+%\input{lstlangs.tex} % Own language definitions. System-wide ones are in /usr/share/texmf-dist/tex/latex/listings/
 
 %\newcommand{\matlab}{\small{\emph{MATLAB\textsuperscript{\textregistered}}}}
 
 
 \title{\papertitle}
 %\date{}		% Disable date on title page.
-\author{
+\author{%
 		\begin{tabular}{l l}
 				Erik Westrup & \texttt{<ada09ewe@student.lu.se>}\\
 				Author2 & \texttt{<ada09@student.lu.se>}
