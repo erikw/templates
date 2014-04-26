@@ -1,11 +1,11 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage{lipsum}
 \usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 %\usepackage[swedish]{babel}
-\newcommand{\papertitle}{Using the Go Programming Language in Practice}
+\newcommand{\papertitle}{PAPER TITLE}
 \usepackage{ifpdf}
-\ifpdf
+\ifpdf%
 	\usepackage{thumbpdf}
 	\usepackage[pdftex,bookmarks=true,pdftitle={\papertitle},pdfauthor={Erik Westrup}]{hyperref}
 \else
@@ -127,6 +127,4 @@
 
 %\VerbatimInput{src/prog1.c}
 
-%\lstinputlisting[language=Java,label=list+prog1,caption={\lstname.  DESCTIPTION.}]{src/prog1.java}
-%\lstinputlisting{src/prog1.java}
-
+%\lstinputlisting[language=Java,label=list+prog1,caption={\lstname.  DESCTIPTION.},linerange=0-32]{src/prog1.java}

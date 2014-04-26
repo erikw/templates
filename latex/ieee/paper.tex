@@ -1,12 +1,12 @@
 \documentclass[10pt,journal,compsoc,final,twoside,twocolumn,a4paper]{IEEEtran}
 \usepackage{lipsum}
 \usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 %\usepackage[swedish]{babel}
 \usepackage{ifpdf}
-\ifpdf
+\ifpdf%
 	\usepackage{thumbpdf}
-	\usepackage[pdftex,bookmarks=true,pdftitle={TITLE},pdfauthor={Erik Westrup, ...}]{hyperref}
+	\usepackage[pdftex,bookmarks=true,pdftitle={TITLE},pdfauthor={Erik Westrup}]{hyperref}
 \else
 	\usepackage{url}
 \fi
@@ -17,7 +17,7 @@
 
 % \author{Erik~Westrup~<ada09ewe@student.lu.se> \\
 %         Author~2~<ada09@student.lu.se>}
-\author{
+\author{%
 \begin{math}
 \left. \begin{array}{ll} 
 	\mathrm{Erik~Westrup,} & \mathrm{~ada09ewe} \\
@@ -34,8 +34,8 @@
 	abstract text\ldots 
 \end{abstract}}
 \maketitle
-\IEEEdisplaynotcompsoctitleabstractindextext
-\IEEEpeerreviewmaketitle
+\IEEEdisplaynotcompsoctitleabstractindextext%
+\IEEEpeerreviewmaketitle%
 
 \section{Introduction}
 
@@ -60,9 +60,9 @@
 
 \newpage
 \section*{Appendix}
-\appendices
+\appendices%
 \section{Credibility of the references}
 
-\emph{\cite{dummy:ref}} .... jfjkdfjkdsfj
+\emph{\cite{dummy:ref}} 
 
 \end{document}

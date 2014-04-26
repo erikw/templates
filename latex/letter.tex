@@ -1,14 +1,15 @@
 \documentclass{letter}
 \usepackage{lipsum}
 \usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 %\usepackage{graphicx}
 %\usepackage{geometry}
 %\usepackage{fancyhdr}
+\newcommand{\lettertitle}{LETTER TITLE}
 \usepackage{ifpdf}
-\ifpdf
+\ifpdf%
 	\usepackage{thumbpdf}
-	\usepackage[pdftex,bookmarks=true,pdftitle={Letter of Recommendatiion},pdfauthor={...}]{hyperref}
+	\usepackage[pdftex,bookmarks=true,pdftitle={\lettertitle},pdfauthor={Erik Westrup}]{hyperref}
 \else
 	\usepackage{url}
 \fi
@@ -24,7 +25,7 @@
 %\fi
 %\rhead{\today\\Lagerbrings väg 8E, Lund, Sweden}
 
-\title{LETTER TITLE}
+\title{\lettertitle}
 \signature{Erik Westrup\\
 	<title>\\
 	<company>
@@ -36,6 +37,7 @@
 
 \begin{document}
 \begin{letter}{}
+%\vspace*{-10\baselineskip} % Move letter some lines up.
 \opening{To Whom it May Concern:}
 %\thispagestyle{fancy}
 
