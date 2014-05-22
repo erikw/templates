@@ -1,8 +1,9 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage{lipsum}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-%\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}	% 8bit output font encoding.
+\usepackage[utf8]{inputenc}	% Unicode input text.
+%\usepackage[swedish]{babel}	% Swedish typographic & hyphenation rules
+%\usepackage[none]{hyphenat}	% No hyphenations.
 \newcommand{\papertitle}{PAPER TITLE}
 \usepackage{ifpdf}
 \ifpdf%
@@ -20,7 +21,7 @@
 
 % Old style of program listings.
 %\usepackage{fancyvrb}	% For source code listing.
-%\fvset{tabsize=4}		% Tabstop is 4 spaces.
+%\fvset{tabsize=4}	% Tabstop is 4 spaces.
 %\fvset{fontsize=\small} % Small fonts for source code.
 
 % Program listings.
@@ -30,28 +31,28 @@
 %\definecolor{gray}{rgb}{0.5,0.5,0.5}
 %\definecolor{mauve}{rgb}{0.58,0,0.82}
 %\lstset {
-				%language=Matlab,					% The language of the code.
-				%basicstyle=\footnotesize,				% The size of the fonts that are used for the code.
-				%numbers=left,						% Where to put the line-numbers.
-				%numberstyle=\tiny\color{gray},				% The style that is used for the line-numbers.
-				%stepnumber=1,						% The step between two line-numbers. If it's 1, each line will be numbered.
-				%numbersep=5pt,						% How far the line-numbers are from the code.
-				%backgroundcolor=\color{white},				% Choose the background color. You must add \usepackage{color}.
-				%showspaces=false,					% Show spaces adding particular underscores.
-				%showstringspaces=false,				% Underline spaces within strings.
-				%showtabs=false,					% Show tabs within strings adding particular underscores.
-				%frame=single,						% Adds a frame around the code.
-				%rulecolor=\color{black},				% If not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here)).
-				%tabsize=2,						% Sets default tabsize to 2 spaces.
-				%captionpos=b,						% Sets the caption-position to bottom.
-				%breaklines=true,					% Sets automatic line breaking.
-				%breakatwhitespace=false,				% Sets if automatic breaks should only happen at whitespace.
-				%title=\lstname,					% Show the filename of files included with \lstinputlisting;  also try caption instead of title.
-				%keywordstyle=\color{blue},				% Keyword style.
-				%commentstyle=\color{dkgreen},				% Comment style.
-				%stringstyle=\color{mauve},				% String literal style.
-				%escapeinside={\%}{)}					% If you want to add a comment within your code.
-				%morekeywords={*,...}					% If you want to add more keywords to the set.
+	%language=Matlab,					% The language of the code.
+	%basicstyle=\footnotesize,				% The size of the fonts that are used for the code.
+	%numbers=left,						% Where to put the line-numbers.
+	%numberstyle=\tiny\color{gray},				% The style that is used for the line-numbers.
+	%stepnumber=1,						% The step between two line-numbers. If it's 1, each line will be numbered.
+	%numbersep=5pt,						% How far the line-numbers are from the code.
+	%backgroundcolor=\color{white},				% Choose the background color. You must add \usepackage{color}.
+	%showspaces=false,					% Show spaces adding particular underscores.
+	%showstringspaces=false,				% Underline spaces within strings.
+	%showtabs=false,					% Show tabs within strings adding particular underscores.
+	%frame=single,						% Adds a frame around the code.
+	%rulecolor=\color{black},				% If not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here)).
+	%tabsize=2,						% Sets default tabsize to 2 spaces.
+	%captionpos=b,						% Sets the caption-position to bottom.
+	%breaklines=true,					% Sets automatic line breaking.
+	%breakatwhitespace=false,				% Sets if automatic breaks should only happen at whitespace.
+	%title=\lstname,					% Show the filename of files included with \lstinputlisting;  also try caption instead of title.
+	%keywordstyle=\color{blue},				% Keyword style.
+	%commentstyle=\color{dkgreen},				% Comment style.
+	%stringstyle=\color{mauve},				% String literal style.
+	%escapeinside={\%}{)}					% If you want to add a comment within your code.
+	%morekeywords={*,...}					% If you want to add more keywords to the set.
 %}
 %\input{lstlangs.tex} % Own language definitions. System-wide ones are in /usr/share/texmf-dist/tex/latex/listings/
 
@@ -59,12 +60,12 @@
 
 
 \title{\papertitle}
-%\date{}		% Disable date on title page.
+%\date{}	% Disable date on title page.
 \author{%
-		\begin{tabular}{l l}
-				Erik Westrup & \texttt{<ada09ewe@student.lu.se>}\\
-				Author2 & \texttt{<ada09@student.lu.se>}
-		\end{tabular}
+	\begin{tabular}{l l}
+		Erik Westrup & \texttt{<erik.westrup@gmail.com>}\\
+		Author2 & \texttt{<ada09@student.lu.se>}
+	\end{tabular}
 }
 
 
@@ -77,7 +78,7 @@
 %\setcounter{page}{2}
 
 \section{SECTION1}
-\lipsum[1-3]
+\lipsum[1--3]
 
 \subsection{SUBSEC}
 \lipsum[1]
