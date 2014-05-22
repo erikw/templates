@@ -40,7 +40,8 @@ $(NAME).dvi $(NAME).ps: $(NAME).tex
 	latexmk -silent -use-make -dvi -ps $<
 
 $(NAME).pdf: $(NAME).tex
-	latexmk -silent -use-make -pdf -pdflatex="pdflatex -interaction nonstopmode -file-line-error" $<
+	@#latexmk -use-make -pdf -pdflatex="pdflatex -interaction nonstopmode -file-line-error" $<
+	latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $<
 
 # Called by latexmk. Adding a $(NAME).pdf dependency would cause infinite recursion by latexmk.
 $(NAME).tpt:
