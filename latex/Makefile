@@ -15,9 +15,20 @@ help:
 
 # target: clean - Deletes all generated files.
 clean:
-	latexmk -C
+	latexmk -C |& tail --lines=+3
 	$(RM) $(NAME).bbl # Remove Bibtex file.
 	$(RM) $(NAME).tpt # Remove PDF thumbnails.
+
+$(NAME).dvi $(NAME).ps: $(NAME).tex
+	latexmk -silent -use-make -dvi -ps $<
+
+$(NAME).pdf: $(NAME).tex
+	@#latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error -interaction nonstopmode" $< |& tail --lines=+3
+	@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $< |& tail --lines=+3
+
+# Called by latexmk. Adding a $(NAME).pdf dependency would cause infinite recursion by latexmk.
+$(NAME).tpt:
+	thumbpdf $(NAME).pdf
 
 # target: wc - Count real words in the tex file.
 wc:
@@ -36,14 +47,4 @@ checkrefs: $(NAME).aux
 	texlua ${HOME}/src/checkcites/checkcites.lua --all $(NAME).aux
 
 
-$(NAME).dvi $(NAME).ps: $(NAME).tex
-	latexmk -silent -use-make -dvi -ps $<
-
-$(NAME).pdf: $(NAME).tex
-	@#latexmk -use-make -pdf -pdflatex="pdflatex -interaction nonstopmode -file-line-error" $<
-	latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $<
-
-# Called by latexmk. Adding a $(NAME).pdf dependency would cause infinite recursion by latexmk.
-$(NAME).tpt:
-	thumbpdf $(NAME).pdf
 
