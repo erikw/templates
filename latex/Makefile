@@ -49,4 +49,4 @@ checkrefs: $(NAME).aux
 
 # Create eps from dia diagrams.
 %.eps: %.dia
-        dia --export $@ $<
+	dia --export $@ $<
