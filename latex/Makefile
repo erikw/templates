@@ -47,4 +47,6 @@ checkrefs: $(NAME).aux
 	texlua ${HOME}/src/checkcites/checkcites.lua --all $(NAME).aux
 
 
-
+# Create eps from dia diagrams.
+%.eps: %.dia
+        dia --export $@ $<
