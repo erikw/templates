@@ -13,6 +13,7 @@
 \else
 	\usepackage{url}
 \fi
+\input{signature.tex}
 
 
 % Header logo.
@@ -25,11 +26,14 @@
 %\fi
 %\rhead{\today\\Lagerbrings väg 8E, Lund, Sweden}
 
+
 \title{\lettertitle}
-\signature{Erik Westrup\\
-	<title>\\
-	<company>
-}
+% NOTE not set because using extended closing with sig img.
+%\signature{\mysignature\\
+	%Erik Westrup\\
+	%<title>\\
+	%<company>
+%}
 \address{Lagerbrings väg 8E, Lund, Sweden}
 %\date{} % Disable date.
 \longindentation=0pt % Move closing and signature to the left.
@@ -43,6 +47,13 @@
 
 \lipsum[1-3]
 
-\closing{Yours sincerely,}
+%\closing{Yours sincerely,}
+\closing{Yours sincerely,\\
+	\fromsig{\handwrittensig}\\
+	\fromname{Erik Westrup\\
+		<title>\\
+		<company>
+	}
+}
 \end{letter}
 \end{document}
