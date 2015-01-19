@@ -9,12 +9,15 @@
 \ifpdf%
 	\usepackage{thumbpdf}
 	\usepackage[pdftex,bookmarks=true,pdftitle={\papertitle},pdfauthor={Erik Westrup}]{hyperref}
-\else
+\else%
 	\usepackage{url}
 \fi
 \usepackage[parfill]{parskip}
 \usepackage{graphicx}
 \usepackage{enumerate}
+
+%\IfFileExists{vc.tex}{\input{vc.tex}}{\input{vc-default.tex}}
+\input{vc.tex}
 
 \vbadness=10000 % Suppress "underfull \vbox badness"
 \hbadness=10000 % Suppress "underfull \hbox badness"
@@ -75,6 +78,9 @@
 
 \begin{titlepage}
 \maketitle
+\begin{center}
+Version: \GITAbrHash, \GITAuthorDate%
+\end{center}
 \thispagestyle{empty}	% No page number on title page.
 \end{titlepage}
 %\setcounter{page}{2}

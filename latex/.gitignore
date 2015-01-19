@@ -17,3 +17,4 @@ q.log
 bin/untex/untex
 # latexmk cache
 *.fdb_latexmk
+vc.tex
