@@ -13,6 +13,7 @@
 *.swp
 *.toc
 *.tpt
+*.vrb
 q.log
 bin/untex/untex
 # latexmk cache
