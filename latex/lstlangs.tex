@@ -11,7 +11,7 @@ literate={\$}{{\textcolor{blue}{\$}}}1
 		 {~}{{\textcolor{blue}{\textasciitilde}}}1,
 }
 
-%% Listings definition for Go language
+%% Go language
 %% Go language reference : http://www.golang.org
 %% Author : Uriel Corfa <uriel@corfa.fr>
 %% Project home: https://bitbucket.org/korfuri/golang-latex-listings
@@ -42,4 +42,14 @@ literate={\$}{{\textcolor{blue}{\$}}}1
   morecomment=[s]{/*}{*/},
   % Options
   sensitive=true
+}
+
+% Diff
+% Source: http://tex.stackexchange.com/questions/50176/highlighting-a-diff-file
+\lstdefinelanguage{Diff}{
+  morecomment=[f][\color{blue}]{@@},     % group identifier
+  morecomment=[f][\color{red}]-,         % deleted lines
+  morecomment=[f][\color{green}]+,       % added lines
+  morecomment=[f][\color{magenta}]{---}, % Diff header lines (must appear after +,-)
+  morecomment=[f][\color{magenta}]{+++},
 }
