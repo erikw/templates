@@ -10,7 +10,7 @@ all: $(OUT)
 
 # target: help - Display all targets.
 help:
-	egrep "#\starget:" [Mm]akefile  | cut -d " " -f3-
+	@egrep "#\starget:" [Mm]akefile  | cut -d " " -f3-
 
 # target: clean - Deletes all generated files.
 clean:
