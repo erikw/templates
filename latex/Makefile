@@ -24,6 +24,7 @@ clean:
 	$(RM) *.bbl # Remove Bibtex file.
 	$(RM) *.tpt # Remove PDF thumbnails.
 	$(RM) $(VC)
+	$(RM) *.nav *.snm # Beamer files not being cleaned up by $(latexmk -C).
 
 # target: open - open the first produced PDF.
 open: $(word 1, $(TARGETS_PDF))
