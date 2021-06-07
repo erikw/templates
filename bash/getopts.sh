@@ -4,7 +4,7 @@
 scriptname=${0##*/}
 usage="Usage: ${scriptname} -c {up|down} [-i increment] [-m mixer]"
 
- read -r -d '' usage <<EOF
+read -r -d '' usage <<EOF
 Usage: $ ./${scriptname} -c {up|down} [-i increment] [-m mixer]"
 -c\tCommand to use.
 -i\tHow many percentes to increment.
