@@ -3,7 +3,7 @@
 
 scriptname=${0##*/}
 read -r -d '' usage <<EOF
-Usage: $ ./${scriptname} -c {up|down} [-i increment] [-m mixer]"
+Usage: $ ./${scriptname} -c {up|down} [-i increment] [-m mixer] [-- --other --args here]"
 -c\tCommand to use.
 -i\tHow many percentes to increment.
 -m\tWhich mixer to use.
@@ -23,6 +23,7 @@ fi
 # "An option character in this string can be followed by a colon (‘:’) to indicate that it takes a required argument."
 # "If an option character is followed by two colons (‘::’), its argument is optional; this is a GNU extension."
 # "If the first character of options is a colon (‘:’), then getopt returns ‘:’ instead of ‘?’ to indicate a missing option argument."
+# To pass args not that should not be processed by getopt, pass a '--' and everything after it will be left to $* after getopts.
 while getopts ":c:i:m:h?" opt; do
 	case "$opt" in
 		c) cmd="$OPTARG";;
@@ -48,3 +49,4 @@ fi
 echo $cmd
 echo $opt1
 echo $opt2
+echo "remaining args:" $*
