@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # getopts template
 
+set -e
+
 scriptname=${0##*/}
-read -r -d '' usage <<EOF
+# Make $(set -e) not trigger on read(1). Reference: https://unix.stackexchange.com/a/622786
+IFS= read -rd '' usage <<EOF || :
 Usage: $ ./${scriptname} -c {up|down} [-i increment] [-m mixer] [-- --other --args here]"
 -c\tCommand to use.
 -i\tHow many percentes to increment.
