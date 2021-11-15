@@ -1,5 +1,6 @@
 # Compile a LaTeX file to different output formats.
 # Inspired latexmk(1) usage from: http://tex.stackexchange.com/questions/40738/how-to-properly-make-a-latex-project
+# The tail after latexmk is to minimize unnecessary output and look more like a real make for .c files i.e. no output if nothing to do.
 TARGETS_NAMES = paper letter slides
 
 TARGETS_PDF = $(addsuffix .pdf, $(TARGETS_NAMES))
@@ -20,7 +21,7 @@ help:
 
 # target: clean - Deletes all generated files.
 clean:
-	latexmk -C |& tail --lines=+3
+	latexmk -C |& tail -n +5
 	$(RM) *.bbl # Remove Bibtex file.
 	$(RM) *.tpt # Remove PDF thumbnails.
 	$(RM) $(VC)
@@ -45,8 +46,8 @@ cc:
 
 # target: <name>.pdf - Create PDF version of <name>.
 %.pdf: %.tex
-	#@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error -interaction nonstopmode" $< |& tail --lines=+3
-	#@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $< |& tail --lines=+3  # Strips the latexmk intro text, but also hides errors.
+	#@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error -interaction nonstopmode" $< |& tail -n +5
+	#@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $< |& tail -n +5  # Strips the latexmk intro text, but also hides errors.
 	@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $<
 
 # target: <name>.dvi - Create DVI version of <name>.
