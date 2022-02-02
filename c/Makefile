@@ -11,7 +11,7 @@ HDR		= include
 DEST		= bin
 LIB		= lib
 #SLIBS		= $(wildcard $(LIB)/*.a)
-OBJS 		= $(patsubst $(SRC)/%.c,$(DEST)/%.o,$(SRCS))
+OBJS		= $(patsubst $(SRC)/%.c,$(DEST)/%.o,$(SRCS))
 TESTDIR		= testfiles
 TESTOUTS	= $(wildcard $(TESTDIR)/*.out)
 THISDIR		= $(shell basename `pwd`)
@@ -29,7 +29,7 @@ CFLAGS		= $(ERRFLAGS) -O$(OPTLVL) $(DEBUG) -std=$(STD) -fstack-protector-all
 ifeq ($(CXX), gcc)
 	CFLAGS +=  -z noexecstack
 endif
-CFLAGS 		+= $(INCLUDES) $(LFLAGS) $(LIBS)
+CFLAGS		+= $(INCLUDES) $(LFLAGS) $(LIBS)
 DFLAGS		= -q
 #DFLAGS		= -y
 
