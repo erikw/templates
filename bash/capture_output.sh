@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# How to capture output from a command, while still letting it though to stdout as usual (and retain command's exit code!).
 
 # Capture output of command to variable.
 _capture() {
@@ -23,7 +24,6 @@ echo "> captured: $output"
 
 
 printf "==========\n"
-
 # Runs command in background using coproc.
 # Reference: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Coprocesses
 _capture_coproc() {
@@ -35,10 +35,25 @@ _capture_coproc() {
 	read -r refvar <&"${CMDPROC[0]}"
 }
 
-_capture output \
+_capture output_coproc \
 	printf "test %s, %s\n" \
 	"arg1" \
 	"arg2"
 
 echo -e "\n> ecode: $?"
-echo "> captured: $output"
+echo "> captured: $output_coproc"
+
+
+
+printf "==========\n"
+# Run coproc directly.
+coproc CMDPROC (\
+	printf "test %s, %s\n" \
+	"arg1" \
+	"arg2")
+
+read -r output_coproc_dir <&"${CMDPROC[0]}"
+echo "$output_coproc_dir"
+
+echo -e "\n> ecode: $?"
+echo "> captured: $output_coproc_dir"
