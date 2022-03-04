@@ -1,5 +1,4 @@
 # Markdown lists indentation
-
 Reference: https://stackoverflow.com/a/53867805/265508
 
 ## Unordered
@@ -35,4 +34,3 @@ Options are:
   * Unordered: 2 spaces
   * Ordered: 3 spaces
 * Consistency; 3 spaces for either
-
