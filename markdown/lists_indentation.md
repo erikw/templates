@@ -30,7 +30,7 @@ Reference: https://stackoverflow.com/a/53867805/265508
 
 ## Conclusion
 Options are:
-* Mimimum space for each
+* Mimimum spaces;
   * Unordered: 2 spaces
   * Ordered: 3 spaces
 * Consistency; 3 spaces for both
