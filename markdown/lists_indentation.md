@@ -33,4 +33,4 @@ Options are:
 * Mimimum space for each
   * Unordered: 2 spaces
   * Ordered: 3 spaces
-* Consistency; 3 spaces for either
+* Consistency; 3 spaces for both
