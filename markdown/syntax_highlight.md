@@ -1,7 +1,7 @@
 # Syntax Highlighting
 
 ## Shell Sessions
-### Comparisions
+### Comparisons
 ### Plain commands
 Using `bash`:
 ```bash
@@ -18,7 +18,7 @@ rm -rf /  # Don't try this please
 ```
 
 
-### Preceeding shell marker `$ `
+### Preceding shell marker `$ `
 Using `bash`:
 ```bash
 $ ls ~/
@@ -87,8 +87,8 @@ $ rm -rf /  # Don't try this please
 ```
 
 ### Conclusion
-* Use `console` when you want to demonstrate output from commands as well as it looks to the user. Requires preceeding lines with `$ `.
-* Use `bash` for commands that should be copy-and-pasteable for the user (no preceeding `$ `).
+* Use `console` when you want to demonstrate output from commands as well as it looks to the user. Requires preceding lines with `$ `.
+* Use `bash` for commands that should be copy-and-pasteable for the user (no preceding `$ `).
 
 ## Reference
 * https://stackoverflow.com/questions/20303826/how-to-highlight-bash-shell-commands-in-markdown/49004070#49004070
