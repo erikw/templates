@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-[[ "${TRACE-0}" == "1" ]] && set -o xtrace
+[[ "${TRACE-0}" =~ ^1|t|y|true|yes$ ]] && set -o xtrace
 
 SCRIPT_NAME=${0##*/}
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
