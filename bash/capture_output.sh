@@ -57,8 +57,6 @@ coproc CMDPROC (\
 	"arg1" \
 	"arg2")
 
-read -r output_coproc_dir <&"${CMDPROC[0]}"
-echo "$output_coproc_dir"
-
 echo -e "\n> ecode: $?"
+read -r output_coproc_dir <&"${CMDPROC[0]}"
 echo "> captured: $output_coproc_dir"
