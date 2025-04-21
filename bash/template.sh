@@ -23,4 +23,6 @@ while getopts ":c:h?" opt; do
 		h|?|*) echo -e "$USAGE"; exit 0;;
 	esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
+
+echo "$arg_c"
