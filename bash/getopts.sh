@@ -36,7 +36,7 @@ while getopts ":c:i:m:h?" opt; do
 		h|?|*) echo -e "$usage"; exit 0;;
 	esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 # Validate supplied option arguments.
 if [ "$cmd" = "up" ]; then
@@ -49,7 +49,7 @@ else
 fi
 
 
-echo $cmd
-echo $opt1
-echo $opt2
-echo "remaining args:" $*
+echo "$cmd"
+echo "$opt1"
+echo "$opt2"
+echo "remaining args:" "$@"

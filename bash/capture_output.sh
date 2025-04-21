@@ -6,9 +6,10 @@ _capture() {
 	declare -n refvar="$1"
 	shift
 	# Quote $@ to preserve quoted strings. Ref. https://stackoverflow.com/a/39463371/265508
+	# shellcheck disable=SC2124
 	local cmd="${@@Q}"
 	# Preserves exit code from $cmd.
-	refvar=$((eval "$cmd" | tee /dev/tty; exit ${PIPESTATUS[0]})&)
+	refvar=$( (eval "$cmd" | tee /dev/tty; exit "${PIPESTATUS[0]}")&)
 }
 
 _capture output \
@@ -17,6 +18,7 @@ _capture output \
 	"arg2"
 
 echo -e "> ecode: $?"
+# shellcheck disable=SC2154
 echo "> captured: $output"
 
 
@@ -30,8 +32,10 @@ _capture_coproc() {
 	declare -n refvar="$1"
 	shift
 	# Quote $@ to preserve quoted strings. Ref. https://stackoverflow.com/a/39463371/265508
+	# shellcheck disable=SC2124
 	local cmd="${@@Q}"
 	coproc CMDPROC (eval "$cmd" | tee /dev/tty)
+	# shellcheck disable=SC2034
 	read -r refvar <&"${CMDPROC[0]}"
 }
 
@@ -41,6 +45,7 @@ _capture output_coproc \
 	"arg2"
 
 echo -e "\n> ecode: $?"
+# shellcheck disable=SC2154
 echo "> captured: $output_coproc"
 
 
