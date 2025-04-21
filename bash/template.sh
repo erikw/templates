@@ -11,7 +11,7 @@ cd "$SCRIPT_DIR"
 
 IFS= read -rd '' USAGE <<EOF || :
 This script ....
-Usage: $ ${SCRIPT_NAME} -h [-c count]
+Usage: $ ${SCRIPT_NAME} -h | [-c count]
 EOF
 
 
