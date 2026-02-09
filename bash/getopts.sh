@@ -7,6 +7,8 @@ SCRIPT_NAME=${0##*/}
 # Make $(set -e) not trigger on read(1). Reference: https://unix.stackexchange.com/a/622786
 IFS= read -rd '' usage <<EOF || :
 Usage: $ ${SCRIPT_NAME} -h | -c {up|down} [-i increment] [-m mixer] [-- --other --args here]
+
+-h\tShow this help text.
 -c\tCommand to use.
 -i\tHow many percentes to increment.
 -m\tWhich mixer to use.

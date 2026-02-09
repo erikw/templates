@@ -12,6 +12,9 @@ cd "$SCRIPT_DIR"
 IFS= read -rd '' USAGE <<EOF || :
 This script ....
 Usage: $ ${SCRIPT_NAME} -h | [-c count]
+
+-h\tShow this help text.
+-c\tThe count.
 EOF
 
 
