@@ -34,6 +34,7 @@ _capture_coproc() {
 	# Quote $@ to preserve quoted strings. Ref. https://stackoverflow.com/a/39463371/265508
 	# shellcheck disable=SC2124
 	local cmd="${@@Q}"
+	# shellcheck disable=SC1065,SC1064
 	coproc CMDPROC (eval "$cmd" | tee /dev/tty)
 	# shellcheck disable=SC2034
 	read -r refvar <&"${CMDPROC[0]}"
@@ -52,6 +53,7 @@ echo "> captured: $output_coproc"
 
 printf "==========\n"
 # Run coproc directly.
+# shellcheck disable=SC1065
 coproc CMDPROC (\
 	printf "test %s, %s\n" \
 	"arg1" \
