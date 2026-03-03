@@ -21,7 +21,7 @@ help:
 
 # target: clean - Deletes all generated files.
 clean:
-	latexmk -C |& tail -n +5
+	latexmk -C 2>&1 | tail --lines=+3
 	$(RM) *.bbl # Remove Bibtex file.
 	$(RM) *.tpt # Remove PDF thumbnails.
 	$(RM) $(VC)
