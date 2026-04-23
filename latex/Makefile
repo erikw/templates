@@ -8,7 +8,12 @@ TARGETS_DVI = $(addsuffix .dvi, $(TARGETS_NAMES))
 TARGETS_PS  = $(addsuffix .ps, $(TARGETS_NAMES))
 VC=vc.tex
 
+CHECKLINKS_PDFS ?= $(TARGETS_PDF) # Let's us override it on CLI.
+
 LATEXMK = latexmk
+VENV = .venv
+PIP = $(VENV)/bin/pip
+PDFX = $(VENV)/bin/pdfx
 
 # Force latexmk to always run by making %.pdf a phony target.
 .PHONY: all clean help open wc %.dvi %.ps %.pdf
@@ -43,6 +48,23 @@ wc:
 # target: cc - Count real characters in the tex file.
 cc:
 	bin/untex/untex	$(NAME).tex | wc -c
+
+
+# target: checklinks - Look for dead URLs in all generated PDFs by default.
+# https://github.com/metachris/pdfx
+# Installs the local Python dependency from requirements.txt on demand.
+# Example: make checklinks CHECKLINKS_PDFS=cv_erik_westrup.pdf
+# Example: make checklinks CHECKLINKS_PDFS='cover_letter_erik_westrup_en.pdf cover_letter_erik_westrup_sv.pdf'
+checklinks: $(CHECKLINKS_PDFS) $(PDFX)
+	@for pdf in $(CHECKLINKS_PDFS); do \
+		echo "Checking $$pdf"; \
+		$(PDFX) --check-links "$$pdf"; \
+	done
+
+$(PDFX): requirements.txt
+	python3 -m venv $(VENV)
+	$(PIP) install --upgrade pip
+	$(PIP) install -r requirements.txt
 
 
 # target: <name>.pdf - Create PDF version of <name>.

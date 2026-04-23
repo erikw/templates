@@ -19,3 +19,4 @@ bin/untex/untex
 # latexmk cache
 *.fdb_latexmk
 vc.tex
+.venv/
