@@ -8,6 +8,8 @@ TARGETS_DVI = $(addsuffix .dvi, $(TARGETS_NAMES))
 TARGETS_PS  = $(addsuffix .ps, $(TARGETS_NAMES))
 VC=vc.tex
 
+LATEXMK = latexmk
+
 # Force latexmk to always run by making %.pdf a phony target.
 .PHONY: all clean help open wc %.dvi %.ps %.pdf
 
@@ -23,13 +25,12 @@ help:
 clean:
 	latexmk -C 2>&1 | tail --lines=+3
 	$(RM) *.bbl # Remove Bibtex file.
-	$(RM) *.tpt # Remove PDF thumbnails.
 	$(RM) $(VC)
 	$(RM) *.nav *.snm # Beamer files not being cleaned up by $(latexmk -C).
 
 # target: open - open the first produced PDF.
 open: $(word 1, $(TARGETS_PDF))
-	xdg-open $<
+	open $<
 
 # target checkrefs - Check for unused references with https://github.com/cereda/checkcites
 checkrefs: $(NAME).aux
@@ -46,18 +47,12 @@ cc:
 
 # target: <name>.pdf - Create PDF version of <name>.
 %.pdf: %.tex
-	#@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error -interaction nonstopmode" $< |& tail -n +5
-	#@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $< |& tail -n +5  # Strips the latexmk intro text, but also hides errors.
-	@latexmk -use-make -pdf -pdflatex="pdflatex -file-line-error" $<
+	$(LATEXMK) $< 2>&1
 
 # target: <name>.dvi - Create DVI version of <name>.
 # target: <name>.ps - Create Postscript version of <name>.
 %.dvi %.ps: %.tex
 	latexmk -silent -use-make -dvi -ps $<
-
-# Called by latexmk.
-%.tpt: %.pdf
-	thumbpdf $<
 
 # target <name>.eps - Create eps from dia diagrams.
 %.eps: %.dia
