@@ -14,8 +14,8 @@ LATEXMK = latexmk
 .PHONY: all clean help open wc %.dvi %.ps %.pdf
 
 # target: all - Default target; create all PDF version.s
-#all: $(TARGETS_PDF) $(TARETS_DVI) $(TARGETS_PS)
-all: $(TARGETS_PDF)
+all:
+	$(LATEXMK) 2>&1
 
 # target: help - Display all targets.
 help:
@@ -23,7 +23,7 @@ help:
 
 # target: clean - Deletes all generated files.
 clean:
-	latexmk -C 2>&1 | tail --lines=+3
+	$(LATEXMK) -C 2>&1 | tail -n +5
 	$(RM) *.bbl # Remove Bibtex file.
 	$(RM) $(VC)
 	$(RM) *.nav *.snm # Beamer files not being cleaned up by $(latexmk -C).
